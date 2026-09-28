@@ -1,0 +1,241 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecipeBox - Recipe & Meal Planner</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">🍴 RecipeBox</div>
+
+        <div class="nav-links">
+            <button onclick="showSection('dashboard')">Dashboard</button>
+            <button onclick="showSection('recipes')">Recipes</button>
+            <button onclick="showSection('mealplan')">Meal Planner</button>
+            <button onclick="showSection('shopping')">Shopping List</button>
+            <button onclick="showSection('users')">Users</button>
+        </div>
+    </nav>
+
+
+    <!-- Dashboard -->
+    <section id="dashboard" class="section active">
+
+        <div class="hero">
+            <h1>RecipeBox</h1>
+            <p>Personal Recipe and Meal Planner</p>
+
+            <button class="primary-btn" onclick="showSection('recipes')">
+                Manage Recipes
+            </button>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>🍳 Recipes</h3>
+                <p>Store and manage your favourite recipes.</p>
+            </div>
+
+            <div class="card">
+                <h3>📅 Meal Planner</h3>
+                <p>Plan your meals for specific dates.</p>
+            </div>
+
+            <div class="card">
+                <h3>🛒 Shopping List</h3>
+                <p>Generate a consolidated shopping list.</p>
+            </div>
+
+            <div class="card">
+                <h3>❤️ Favourites</h3>
+                <p>Mark recipes as your favourites.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Recipes -->
+    <section id="recipes" class="section">
+
+        <h2>Recipe Management</h2>
+
+        <!-- Add Recipe -->
+        <div class="form-card">
+
+            <h3>Add New Recipe</h3>
+
+            <input type="text" id="recipeName"
+                   placeholder="Recipe Name">
+
+            <input type="text" id="cuisine"
+                   placeholder="Cuisine">
+
+            <input type="text" id="tags"
+                   placeholder="Tags (example: spicy,rice)">
+
+            <input type="number" id="prepTime"
+                   placeholder="Preparation Time (minutes)">
+
+            <textarea id="steps"
+                      placeholder="Cooking Steps"></textarea>
+
+            <h4>Ingredients</h4>
+
+            <input type="text" id="ingredientName"
+                   placeholder="Ingredient Name">
+
+            <input type="number" id="quantity"
+                   placeholder="Quantity">
+
+            <input type="text" id="unit"
+                   placeholder="Unit (grams, cups, etc.)">
+
+            <button class="primary-btn"
+                    onclick="addRecipe()">
+                Add Recipe
+            </button>
+
+        </div>
+
+
+        <!-- Search -->
+        <div class="search-box">
+
+            <h3>Search Recipes</h3>
+
+            <input type="text"
+                   id="searchText"
+                   placeholder="Search recipe name">
+
+            <button onclick="searchRecipes()">
+                Search
+            </button>
+
+            <button onclick="getRecipes()">
+                Show All
+            </button>
+
+        </div>
+
+
+        <!-- Recipe List -->
+        <div id="recipeList" class="recipe-grid"></div>
+
+    </section>
+
+
+    <!-- Meal Planner -->
+    <section id="mealplan" class="section">
+
+        <h2>Meal Planner</h2>
+
+        <div class="form-card">
+
+            <input type="date" id="mealDate">
+
+            <select id="mealType">
+                <option value="Breakfast">Breakfast</option>
+                <option value="Lunch">Lunch</option>
+                <option value="Dinner">Dinner</option>
+                <option value="Snack">Snack</option>
+            </select>
+
+            <input type="number"
+                   id="mealRecipeId"
+                   placeholder="Recipe ID">
+
+            <button class="primary-btn"
+                    onclick="createMealPlan()">
+                Plan Meal
+            </button>
+
+        </div>
+
+        <button onclick="getMealPlans()">
+            View Meal Plans
+        </button>
+
+        <div id="mealPlanList"></div>
+
+    </section>
+
+
+    <!-- Shopping List -->
+    <section id="shopping" class="section">
+
+        <h2>Weekly Shopping List</h2>
+
+        <div class="form-card">
+
+            <label>Start Date</label>
+
+            <input type="date"
+                   id="startDate">
+
+            <label>End Date</label>
+
+            <input type="date"
+                   id="endDate">
+
+            <button class="primary-btn"
+                    onclick="generateShoppingList()">
+                Generate Shopping List
+            </button>
+
+        </div>
+
+        <div id="shoppingList"></div>
+
+    </section>
+
+
+    <!-- Users -->
+    <section id="users" class="section">
+
+        <h2>User Management</h2>
+
+        <div class="form-card">
+
+            <input type="text"
+                   id="userName"
+                   placeholder="Name">
+
+            <input type="email"
+                   id="userEmail"
+                   placeholder="Email">
+
+            <input type="password"
+                   id="userPassword"
+                   placeholder="Password">
+
+            <button class="primary-btn"
+                    onclick="createUser()">
+                Create User
+            </button>
+
+        </div>
+
+        <button onclick="getUsers()">
+            View Users
+        </button>
+
+        <div id="userList"></div>
+
+    </section>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+
