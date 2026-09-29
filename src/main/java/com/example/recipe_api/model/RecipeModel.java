@@ -1,6 +1,8 @@
 package com.example.recipe_api.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
 
 import java.util.List;
 
@@ -12,11 +14,21 @@ public class RecipeModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank
     private String name;
+
+    @NotBlank
     private String cuisine;
+
     private String tags;
+
+    @NotBlank
     private String steps;
+
+    
+    @Positive
     private int prepTime;
+    
     private boolean favourite;
 
    @OneToMany(

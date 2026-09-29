@@ -2,6 +2,9 @@ package com.example.recipe_api.controller;
 
 import com.example.recipe_api.model.RecipeModel;
 import com.example.recipe_api.service.RecipeService;
+
+import jakarta.validation.Valid;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,7 +20,7 @@ public class RecipeController {
     }
 
     @PostMapping("/createRecipe")
-    public RecipeModel createRecipe(@RequestBody RecipeModel recipe) {
+    public RecipeModel createRecipe( @Valid @RequestBody RecipeModel recipe) {
         return recipeService.createRecipe(recipe);
     }
 
